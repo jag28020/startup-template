@@ -25,19 +25,16 @@
                 <div id="navbar-menu" class="collapse navbar-collapse no-padding">
                     <ul class="nav navbar-nav navbar-left-sidebar font-weight-600">
                         <li>
-                            <a href="#" title="Home">Dashboard</a>
+                            <a href="#" title="Home"><i class="fa fa-user"></i>&nbsp;&nbsp;My Profile</a>
                         </li>
                         <li>
-                            <a href="#" title="Home">My Listings</a>
+                            <a href="#" title="Home"><i class="fa fa-bars"></i>&nbsp;&nbsp;My Listings</a>
                         </li>
                         <li>
-                            <a href="#" title="Home">Add Listing</a>
+                            <a href="#" title="Home"><i class="fa fa-plus"></i>&nbsp;&nbsp;Add Listing</a>
                         </li>
                         <li>
-                            <a href="#" title="Home">My Profile</a>
-                        </li>
-                        <li>
-                            <a href="#" title="Home">Logout</a>
+                            <a href="/auth/logout" title="Home"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Logout</a>
                         </li>
                     </ul>
                 </div>
@@ -59,211 +56,57 @@
         </nav>
         <!-- end navigation --> 
         <div class="sidebar-wrapper bg-light-gray sm-padding-50px-top">
-            <!-- start section -->
-            <section class="wow fadeIn">
-                <div class="container">
+
+            <section class="wow fadeIn parallax" data-stellar-background-ratio="0.5" style="background:#aaa">
+            <div class="opacity-full bg-black"></div>
+            <div class="container">
+                <div class="row">
+                    <!-- start contact-form head -->
+                    <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 center-col margin-eight-bottom sm-margin-40px-bottom xs-margin-30px-bottom text-center">
+                        <div class="text-small text-medium-gray alt-font text-uppercase margin-5px-bottom">My Profile</div>
+                        <h5 class="alt-font text-white font-weight-600">Edit your profile details below!</h5>
+
+                        <div>
+                            <img src="{{ user.image }}" alt="" id="user-image">
+                            <button id="btn-file-select" type="file" class="btn btn-deep-pink btn-rounded btn-small margin-20px-top xs-no-margin-top"><i class="fa fa-picture-o"></i>&nbsp;&nbsp;Upload Photo</button>
+                        </div>
+
+                    </div>
+                    <!-- end contact-form head -->
+                </div>
+                <!-- start contact-form -->
+                <form onsubmit="_updateUser(event)" id="profile-data">
                     <div class="row">
-                        <div class="col-md-12 wow fadeIn">
-                            <span class="head-text text-extra-dark-gray font-weight-300 width-80 display-block line-height-90 md-width-100">
-                                <a href="about-us-modern.html" class="text-deep-pink"><strong>Pofo</strong></a> is a branding agency based in London. I design thoughtful digital experiences & beautiful brand aesthetics.
-                            </span>
+                        <div class="col-md-12 sm-clear-both">
+                            <div id="success-project-contact-form" class="no-margin-lr"></div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <input value="{{ user.name }}" type="text" name="name" id="name" placeholder="Name *" class="bg-transparent border-color-medium-dark-gray medium-input">
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <input value="{{ user.phone }}" type="text" name="phone" id="phone" placeholder="Phone" class="bg-transparent border-color-medium-dark-gray medium-input">
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <input value="{{ user.email }}" type="text" name="email" id="email" placeholder="E-mail *" class="bg-transparent border-color-medium-dark-gray medium-input">
+                        </div>
+                        <input type="hidden" name="id" value="{{ user.id }}"/>
+                        <div class="col-md-6 col-sm-12">
+                            <input value="{{ user.birthday }}" type="date" name="birthday" id="birthday" class="bg-transparent border-color-medium-dark-gray medium-input">
+                        </div>
+                        <div class="col-md-12 sm-clear-both">
+                            <textarea name="bio" id="bio" placeholder="My Bio" rows="6" class="bg-transparent border-color-medium-dark-gray medium-textarea">{{ user.bio }}</textarea>
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <button id="project-contact-us-button" type="submit" class="btn btn-deep-pink btn-rounded btn-medium margin-20px-top xs-no-margin-top"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Update Profile</button>
                         </div>
                     </div>
-                </div>
-            </section>
-            <!-- end section -->
-            <!-- start divider -->
-            <div class="container"><div class="divider-full bg-extra-light-gray"></div></div>
-            <!-- end divider -->
-            <!-- start about section -->
-            <section class="wow fadeIn">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 wow fadeIn">
-                            <div class="position-relative icon-with-paragraph">
-                                <span class="text-deep-pink position-absolute left-0 top-0 alt-font special-char-extra-large sm-display-none">*</span> 
-                                <h5 class="font-weight-300 text-extra-dark-gray width-90 padding-nineteen-left md-padding-twenty-left md-width-100 sm-no-padding-left xs-margin-15px-bottom">A digital studio crafting beautiful experiences. We create premium designs and technology.</h5>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-5 col-md-offset-1 col-lg-offset-0 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="0.2s">
-                            <p class="text-medium font-weight-300 width-70 line-height-26 md-width-100">We are idea-driven, working with a strong focus on design and user experience. Our projects should engage your audience, we want to create wonderful digital things that people love to be part of and use. That's what your brand and audience deserve.</p>
-                            <a href="about-us-simple.html" class="text-uppercase alt-font display-inline-block text-extra-dark-gray font-weight-600 text-deep-pink-hover text-extra-small">About Our Company <i class="fa fa-long-arrow-right margin-5px-left text-medium position-relative top-2" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </section>
+                </form>
+                <!-- end contact-form -->
+            </div>
+        </section>
+
             <!-- end about section -->
-            <!-- start portfolio section -->
-            <section class="no-padding-tb wow fadeIn">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 no-padding xs-padding-15px-lr">
-                            <div class="filter-content overflow-hidden">
-                                <ul class="portfolio-grid portfolio-metro-grid work-3col hover-option5 gutter-medium">
-                                    <li class="grid-sizer"></li>
-                                    <!-- start portfolio item -->
-                                    <li class="grid-item wow zoomIn last-paragraph-no-margin">
-                                        <a href="single-project-page-01.html">
-                                            <figure>
-                                                <div class="portfolio-img"><img src="http://placehold.it/770x788" alt=""/></div>
-                                                <figcaption>
-                                                    <div class="portfolio-hover-main text-center">
-                                                        <div class="portfolio-hover-box vertical-align-middle">
-                                                            <div class="portfolio-hover-content position-relative">
-                                                                <div class="bg-deep-pink center-col separator-line-horrizontal-medium-light2 position-relative"></div>
-                                                                <span class="font-weight-600 line-height-normal alt-font text-white text-uppercase margin-5px-bottom display-block">Tailoring Interior</span>
-                                                                <p class="text-medium-gray letter-spacing-1 text-uppercase text-extra-small">Branding and Brochure</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </li>
-                                    <!-- end portfolio item -->
-                                    <!-- start portfolio item -->
-                                    <li class="grid-item grid-item-double wow zoomIn last-paragraph-no-margin" data-wow-delay="0.2s">
-                                        <a href="single-project-page-02.html">
-                                            <figure>
-                                                <div class="portfolio-img"><img src="http://placehold.it/770x788" alt=""/></div>
-                                                <figcaption>
-                                                    <div class="portfolio-hover-main text-center">
-                                                        <div class="portfolio-hover-box vertical-align-middle">
-                                                            <div class="portfolio-hover-content position-relative">
-                                                                <div class="bg-deep-pink center-col separator-line-horrizontal-medium-light2 position-relative"></div>
-                                                                <span class="font-weight-600 line-height-normal alt-font text-white text-uppercase margin-5px-bottom display-block">Herbal Beauty Salon</span>
-                                                                <p class="text-medium-gray letter-spacing-1 text-uppercase text-extra-small">Branding and Identity</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </li>
-                                    <!-- end portfolio item -->
-                                    <!-- start portfolio item -->
-                                    <li class="grid-item wow zoomIn last-paragraph-no-margin" data-wow-delay="0.4s">
-                                        <a href="single-project-page-03.html">
-                                            <figure>
-                                                <div class="portfolio-img"><img src="http://placehold.it/770x788" alt=""/></div>
-                                                <figcaption>
-                                                    <div class="portfolio-hover-main text-center">
-                                                        <div class="portfolio-hover-box vertical-align-middle">
-                                                            <div class="portfolio-hover-content position-relative">
-                                                                <div class="bg-deep-pink center-col separator-line-horrizontal-medium-light2 position-relative"></div>
-                                                                <span class="font-weight-600 line-height-normal alt-font text-white text-uppercase margin-5px-bottom display-block">Pixflow Studio</span>
-                                                                <p class="text-medium-gray letter-spacing-1 text-uppercase text-extra-small">Branding and Identity</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </li>
-                                    <!-- end portfolio item -->
-                                    <!-- start portfolio item -->
-                                    <li class="grid-item grid-item-double wow zoomIn last-paragraph-no-margin" data-wow-delay="0.4s">
-                                        <a href="single-project-page-04.html">
-                                            <figure>
-                                                <div class="portfolio-img"><img src="http://placehold.it/770x788" alt=""/></div>
-                                                <figcaption>
-                                                    <div class="portfolio-hover-main text-center">
-                                                        <div class="portfolio-hover-box vertical-align-middle">
-                                                            <div class="portfolio-hover-content position-relative">
-                                                                <div class="bg-deep-pink center-col separator-line-horrizontal-medium-light2 position-relative"></div>
-                                                                <span class="font-weight-600 line-height-normal alt-font text-white text-uppercase margin-5px-bottom display-block">HardDot Stone</span>
-                                                                <p class="text-medium-gray letter-spacing-1 text-uppercase text-extra-small">Branding and Identity</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </li>
-                                    <!-- end portfolio item -->
-                                    <!-- start portfolio item -->
-                                    <li class="grid-item wow zoomIn last-paragraph-no-margin" data-wow-delay="0.6s">
-                                        <a href="single-project-page-05.html">
-                                            <figure>
-                                                <div class="portfolio-img"><img src="http://placehold.it/770x788" alt=""/></div>
-                                                <figcaption>
-                                                    <div class="portfolio-hover-main text-center">
-                                                        <div class="portfolio-hover-box vertical-align-middle">
-                                                            <div class="portfolio-hover-content position-relative">
-                                                                <div class="bg-deep-pink center-col separator-line-horrizontal-medium-light2 position-relative"></div>
-                                                                <span class="font-weight-600 line-height-normal alt-font text-white text-uppercase margin-5px-bottom display-block">Designblast Inc</span>
-                                                                <p class="text-medium-gray letter-spacing-1 text-uppercase text-extra-small">Web and Photography</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </li>
-                                    <!-- end portfolio item -->
-                                    <!-- start portfolio item -->
-                                    <li class="grid-item wow zoomIn last-paragraph-no-margin">
-                                        <a href="single-project-page-06.html">
-                                            <figure>
-                                                <div class="portfolio-img"><img src="http://placehold.it/770x788" alt=""/></div>
-                                                <figcaption>
-                                                    <div class="portfolio-hover-main text-center">
-                                                        <div class="portfolio-hover-box vertical-align-middle">
-                                                            <div class="portfolio-hover-content position-relative">
-                                                                <div class="bg-deep-pink center-col separator-line-horrizontal-medium-light2 position-relative"></div>
-                                                                <span class="font-weight-600 line-height-normal alt-font text-white text-uppercase margin-5px-bottom display-block">Educamp School</span>
-                                                                <p class="text-medium-gray letter-spacing-1 text-uppercase text-extra-small">Branding and Identity</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </li>
-                                    <!-- end portfolio item -->
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- end portfolio section -->
-            <div class="clearfix"></div>
-            <!-- start clients logo section -->
-            <section class="wow fadeIn">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-3 col-xs-12 margin-three-bottom xs-text-center xs-margin-15px-bottom wow fadeInRight">
-                            <a href="https://envato.com" target="_blank"><img src="images/logo-1.png" alt=""></a>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-12 margin-three-bottom xs-text-center xs-margin-15px-bottom wow fadeInRight" data-wow-delay="0.2s">
-                            <a href="https://woocommerce.com" target="_blank"><img src="images/logo-2.png" alt=""></a>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-12 margin-three-bottom xs-text-center xs-margin-15px-bottom wow fadeInRight" data-wow-delay="0.4s">
-                            <a href="https://wordpress.com" target="_blank"><img src="images/logo-3.png" alt=""></a>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-12 margin-three-bottom xs-text-center xs-margin-15px-bottom wow fadeInRight" data-wow-delay="0.6s">
-                            <a href="https://magento.com" target="_blank"><img src="images/logo-4.png" alt=""></a>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-12 xs-margin-15px-bottom xs-text-center wow fadeInRight" data-wow-delay="0.8s">
-                            <a href="http://sass-lang.com/" target="_blank"><img src="images/logo-5.png" alt=""></a>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-12 xs-margin-15px-bottom xs-text-center wow fadeInRight" data-wow-delay="1s">
-                            <a href="https://www.pingdom.com" target="_blank"><img src="images/logo-6.png" alt=""></a>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-12 xs-margin-15px-bottom xs-text-center wow fadeInRight" data-wow-delay="1.2s">
-                            <a href="http://lesscss.org/" target="_blank"><img src="images/logo-7.png" alt=""></a>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-12 xs-text-center wow fadeInRight" data-wow-delay="1.4s">
-                            <a href="https://jquery.com/" target="_blank"><img src="images/logo-8.png" alt=""></a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- end clients logo section -->
-            <!-- start divider -->
-            <div class="container"><div class="divider-full bg-extra-light-gray"></div></div>
-            <!-- end divider -->
+           
             <!-- start team section -->
             <section class="wow fadeIn">
                 <div class="container">
@@ -384,8 +227,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12 center-col text-center">
-                            <h5 class="font-weight-300 text-extra-dark-gray width-80 center-col margin-eight-bottom sm-margin-30px-bottom md-width-100 wow fadeInDown" data-wow-delay="0.2s">We would love to hear about start your new project.</h5>
-                            <a href="about-us-modern.html" class="btn btn-medium btn-rounded btn-transparent-dark-gray wow fadeInDown">Start New Projects</a>
+                            <h5 class="font-weight-300 text-extra-dark-gray width-80 center-col margin-eight-bottom sm-margin-30px-bottom md-width-100 wow fadeInDown" data-wow-delay="0.2s">Create a new listing for others to view.</h5>
+                            <a href="about-us-modern.html" class="btn btn-medium btn-rounded btn-transparent-dark-gray wow fadeInDown">Add Listing</a>
                         </div>
                     </div>
                 </div>
@@ -400,5 +243,47 @@
         <a class="scroll-top-arrow" href="javascript:void(0);"><i class="ti-arrow-up"></i></a>
         <!-- end scroll to top  -->
         {{>scripts}}
+        <script type="text/javascript">
+        $(function(){
+            // This should be changed to your APP ID
+            var turbo = Turbo({site_id: '5a42a666e1de9b0014e5cd55'})
+
+            $('#btn-file-select').click(function(event){
+                event.preventDefault()
+
+                turbo.uploadFile(function(err, data){
+                    if (err){
+                        alert('File Upload Error: ' + err.message)
+                        return
+                    }
+
+                    if (data.confirmation != 'success'){
+                        alert('Error: ' + data.message)
+                        return
+                    }
+
+                    var file = data.result
+                    var id = "{{ user.id }}"
+                    $.post('/auth/update',
+                            { id: id, image: file.url },
+                            function(data) {}
+                    );
+
+                    $('#user-image').attr('src', file.url)
+                })
+            })
+        })
+
+        function _updateUser (e) {
+            // console.log($('#profile-data').serialize())
+            e.preventDefault();
+            $.post( '/auth/update',
+                    $('#profile-data').serialize(),
+                    function (response) {
+                        console.log(response);
+                        alert('Your profile was updated.');
+                    })
+        }
+    </script>
     </body>
 </html>
