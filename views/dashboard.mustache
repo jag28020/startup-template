@@ -25,13 +25,13 @@
                 <div id="navbar-menu" class="collapse navbar-collapse no-padding">
                     <ul class="nav navbar-nav navbar-left-sidebar font-weight-600">
                         <li>
-                            <a href="#my-profile" title="Profile"><i class="fa fa-user"></i>&nbsp;&nbsp;My Profile</a>
+                            <a onClick="toggleSection('my-profile')" href="#" title="Profile"><i class="fa fa-user"></i>&nbsp;&nbsp;My Profile</a>
                         </li>
                         <li>
-                            <a href="#my-listings" title="Listings"><i class="fa fa-bars"></i>&nbsp;&nbsp;My Listings</a>
+                            <a onClick="toggleSection('my-listings')" href="#" title="Listings"><i class="fa fa-bars"></i>&nbsp;&nbsp;My Listings</a>
                         </li>
                         <li>
-                            <a href="#add-listing" title="Add"><i class="fa fa-plus"></i>&nbsp;&nbsp;Add Listing</a>
+                            <a onClick="toggleSection('add-listing')" href="#" title="Add"><i class="fa fa-plus"></i>&nbsp;&nbsp;Add Listing</a>
                         </li>
                         <li>
                             <a href="/auth/logout" title="Home"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Logout</a>
@@ -58,7 +58,7 @@
         <div class="sidebar-wrapper bg-light-gray sm-padding-50px-top">
 
             <!-- start contact form section -->
-        <section class="wow fadeIn big-section" id="section-down">
+        <section id="my-profile" class="wow fadeIn big-section">
             <div class="container">
                 <div class="row equalize sm-equalize-auto">
                     <div class="col-md-6 col-sm-12 col-xs-12 sm-margin-30px-bottom wow fadeInLeft">
@@ -90,7 +90,7 @@
         </section>
         <!-- end contact form section -->
 
-        <section class="bg-light-gray wow fadeIn">
+        <section id="my-listings" class="bg-light-gray wow fadeIn">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 center-col margin-eight-bottom sm-margin-40px-bottom xs-margin-30px-bottom text-center">
@@ -98,51 +98,79 @@
                     </div>
                 </div>
                 <div class="row position-relative">
-                    <div class="swiper-container swiper-pagination-bottom black-move blog-slider swiper-three-slides">
-                        <div class="swiper-wrapper">
+                    
                             <!-- start testimonial item -->
-                            <div class="col-md-4 col-sm-6 col-xs-12 swiper-slide sm-margin-four-bottom">
-                                <div class="margin-half-all bg-white box-shadow-light text-center padding-fourteen-all xs-padding-30px-all">
-                                    <img src="http://placehold.it/149x149" class="border-radius-100 width-40 margin-25px-bottom sm-margin-15px-bottom" alt=""/>
-                                    <p class="sm-margin-15px-bottom xs-margin-20px-bottom">I wanted to hire the best and after looking at several other companies, I knew Jacob was the perfect guy for the job. He is a true professional.</p>
-                                    <span class="text-extra-dark-gray text-small text-uppercase display-block line-height-10 alt-font font-weight-600">Shoko Mugikura</span>
-                                    <span class="text-light-gray2 text-extra-small text-uppercase text-medium-gray">Design Manager</span>
-                                </div>
-                            </div>
-                            <!-- end testimonial item -->
-                            <!-- start testimonial item -->
-                            <div class="col-md-4 col-sm-6 col-xs-12 swiper-slide sm-margin-four-bottom">
-                                <div class="margin-half-all bg-white box-shadow-light text-center padding-fourteen-all xs-padding-30px-all">
-                                    <img src="http://placehold.it/149x149" class="border-radius-100 width-40 margin-25px-bottom sm-margin-15px-bottom" alt=""/>
-                                    <p class="sm-margin-15px-bottom xs-margin-20px-bottom">Trust us we looked for a VERY long time and wasted thousands of dollars testing other teams, freelancers, and outsource companies.</p>
-                                    <span class="text-extra-dark-gray text-small text-uppercase display-block line-height-10 alt-font font-weight-600">Alexander Harvard</span>
-                                    <span class="text-light-gray2 text-extra-small text-uppercase text-medium-gray">Co Founder / CEO</span>
-                                </div>
-                            </div>
-                            <!-- end testimonial item -->
-                            <!-- start testimonial item -->
-                            <div class="col-md-4 col-sm-6 col-xs-12 swiper-slide sm-margin-four-bottom">
-                                <div class="margin-half-all bg-white box-shadow-light text-center padding-fourteen-all xs-padding-30px-all">
-                                    <img src="http://placehold.it/149x149" class="border-radius-100 width-40 margin-25px-bottom sm-margin-15px-bottom" alt=""/>
-                                    <p class="sm-margin-15px-bottom xs-margin-20px-bottom">This is an excellent company! I personally enjoyed the energy and the professional support the whole team gave to us into creating website.</p>
-                                    <span class="text-extra-dark-gray text-small text-uppercase display-block line-height-10 alt-font font-weight-600">Lindsay Swanson</span>
-                                    <span class="text-light-gray2 text-extra-small text-uppercase text-medium-gray">Creative Director</span>
-                                </div>
-                            </div>
-                            <!-- end testimonial item -->
-                            <!-- start testimonial item -->
-                            <div class="col-md-4 col-sm-6 col-xs-12 swiper-slide sm-margin-four-bottom">
-                                <div class="margin-half-all bg-white box-shadow-light text-center padding-fourteen-all xs-padding-30px-all">
-                                    <img src="http://placehold.it/149x149" class="border-radius-100 width-40 margin-25px-bottom sm-margin-15px-bottom" alt=""/>
-                                    <p class="sm-margin-15px-bottom xs-margin-20px-bottom">Their team are easy to work with and helped me make amazing websites in a short amount of time. Thanks again guys for all your hard work.</p>
-                                    <span class="text-extra-dark-gray text-small text-uppercase display-block line-height-10 alt-font font-weight-600">Herman Miller</span>
-                                    <span class="text-light-gray2 text-extra-small text-uppercase text-medium-gray">Creative Director</span>
-                                </div>
-                            </div>
-                            <!-- end testimonial item -->
-                        </div>                        
-                        <div class="swiper-pagination swiper-pagination-three-slides height-auto"></div>
+                    <div class="col-md-3 col-sm-6 col-xs-12 sm-margin-four-bottom">
+                        <div class="margin-half-all bg-white box-shadow-light text-center padding-fourteen-all xs-padding-30px-all">
+                            <img src="http://placehold.it/149x149" class="border-radius-100 width-40 margin-25px-bottom sm-margin-15px-bottom" alt=""/>
+                            <p class="sm-margin-15px-bottom xs-margin-20px-bottom">I wanted to hire the best and after looking at several other companies, I knew Jacob was the perfect guy for the job. He is a true professional.</p>
+                            <span class="text-extra-dark-gray text-small text-uppercase display-block line-height-10 alt-font font-weight-600">Shoko Mugikura</span>
+                            <span class="text-light-gray2 text-extra-small text-uppercase text-medium-gray">Design Manager</span>
+                        </div>
                     </div>
+                    <!-- end testimonial item -->
+                    <!-- start testimonial item -->
+                    <div class="col-md-3 col-sm-6 col-xs-12 sm-margin-four-bottom">
+                        <div class="margin-half-all bg-white box-shadow-light text-center padding-fourteen-all xs-padding-30px-all">
+                            <img src="http://placehold.it/149x149" class="border-radius-100 width-40 margin-25px-bottom sm-margin-15px-bottom" alt=""/>
+                            <p class="sm-margin-15px-bottom xs-margin-20px-bottom">Trust us we looked for a VERY long time and wasted thousands of dollars testing other teams, freelancers, and outsource companies.</p>
+                            <span class="text-extra-dark-gray text-small text-uppercase display-block line-height-10 alt-font font-weight-600">Alexander Harvard</span>
+                            <span class="text-light-gray2 text-extra-small text-uppercase text-medium-gray">Co Founder / CEO</span>
+                        </div>
+                    </div>
+                    <!-- end testimonial item -->
+                    <!-- start testimonial item -->
+                    <div class="col-md-3 col-sm-6 col-xs-12 sm-margin-four-bottom">
+                        <div class="margin-half-all bg-white box-shadow-light text-center padding-fourteen-all xs-padding-30px-all">
+                            <img src="http://placehold.it/149x149" class="border-radius-100 width-40 margin-25px-bottom sm-margin-15px-bottom" alt=""/>
+                            <p class="sm-margin-15px-bottom xs-margin-20px-bottom">This is an excellent company! I personally enjoyed the energy and the professional support the whole team gave to us into creating website.</p>
+                            <span class="text-extra-dark-gray text-small text-uppercase display-block line-height-10 alt-font font-weight-600">Lindsay Swanson</span>
+                            <span class="text-light-gray2 text-extra-small text-uppercase text-medium-gray">Creative Director</span>
+                        </div>
+                    </div>
+                    <!-- end testimonial item -->
+                    <!-- start testimonial item -->
+                    <div class="col-md-3 col-sm-6 col-xs-12 sm-margin-four-bottom">
+                        <div class="margin-half-all bg-white box-shadow-light text-center padding-fourteen-all xs-padding-30px-all">
+                            <img src="http://placehold.it/149x149" class="border-radius-100 width-40 margin-25px-bottom sm-margin-15px-bottom" alt=""/>
+                            <p class="sm-margin-15px-bottom xs-margin-20px-bottom">Their team are easy to work with and helped me make amazing websites in a short amount of time. Thanks again guys for all your hard work.</p>
+                            <span class="text-extra-dark-gray text-small text-uppercase display-block line-height-10 alt-font font-weight-600">Herman Miller</span>
+                            <span class="text-light-gray2 text-extra-small text-uppercase text-medium-gray">Creative Director</span>
+                        </div>
+                    </div>
+                    <!-- end testimonial item -->
+                </div>                        
+     
+            </div>
+        </section>
+
+        <section id="add-listing" class="wow fadeIn big-section">
+            <div class="container">
+                <div class="row equalize sm-equalize-auto">
+                    <div class="col-md-6 col-sm-12 col-xs-12 sm-margin-30px-bottom">
+                        <div class="padding-fifteen-all bg-light-gray border-radius-6 md-padding-seven-all xs-padding-30px-all height-100">
+                            <span class="text-extra-dark-gray alt-font text-large font-weight-600 margin-25px-bottom display-block">Add Listing</span> 
+                            <form onsubmit="" id="profile-data">
+                                <div>
+                                    <div id="success-contact-form" class="no-margin-lr"></div>
+                                    <input type="text" name="name" id="name" placeholder="Title*" class="border-radius-4 bg-white medium-input">
+                                    <input type="text" name="category" id="category" placeholder="Category" class="border-radius-4 bg-white medium-input">
+                                    <input type="text" name="keywords" id="keywords" placeholder="Keywords" class="border-radius-4 bg-white medium-input">
+                                    <input type="date" name="date" id="date" class="border-radius-4 bg-white medium-input">
+                                    <textarea name="description" id="description" placeholder="Description" rows="5" class="border-radius-4 bg-white medium-textarea"></textarea>
+                                    <input type="hidden" value="{{ user.id }}" name="user"/>
+                                    <button type="submit" class="btn btn-small border-radius-4 btn-dark-gray"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Add Listing</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12 col-xs-12 last-paragraph-no-margin">
+                        <div class="padding-ten-all bg-light-gray border-radius-6 md-padding-seven-all xs-padding-30px-all height-100 sm-text-center">
+                            <img src="{{ listing.image }}=s700-c" alt="" id="listing-image" class="border-radius-6 margin-35px-bottom xs-margin-30px-bottom">
+                            <span class="text-large font-weight-600 alt-font text-extra-dark-gray margin-5px-bottom display-block">Listing Picture</span>
+                            <a id="btn-file-select" type="file" class="btn btn-dark-gray btn-small text-extra-small border-radius-4 margin-25px-top"><i class="fa fa-picture-o"></i>&nbsp;&nbsp;Upload Photo</a>
+                        </div>
+                    </div>                    
                 </div>
             </div>
         </section>
@@ -157,6 +185,10 @@
         $(function(){
             // This should be changed to your APP ID
             var turbo = Turbo({site_id: '5a42a666e1de9b0014e5cd55'})
+            
+            window.currentSection = "my-profile";
+            $('#my-listings').hide()
+            $('#add-listing').hide()
 
             $('#btn-file-select').click(function(event){
                 event.preventDefault()
@@ -183,6 +215,19 @@
                 })
             })
         })
+
+        function toggleSection(section) {
+            event.preventDefault()
+
+            if (section == window.currentSection){
+
+            }
+            else{
+                $("#"+section).show()
+                $("#"+window.currentSection).hide()
+                currentSection = section
+            }            
+        }
 
         function _updateUser (e) {
             // console.log($('#profile-data').serialize())
