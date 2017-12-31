@@ -58,8 +58,8 @@
         <div class="sidebar-wrapper bg-light-gray sm-padding-50px-top">
 
             <!-- start contact form section -->
-        <section id="my-profile" class="wow fadeIn big-section">
-            <div class="container">
+        <section id="my-profile" class="wow fadeIn">
+            <div style="height:100vh" class="container">
                 <div class="row equalize sm-equalize-auto">
                     <div class="col-md-6 col-sm-12 col-xs-12 sm-margin-30px-bottom wow fadeInLeft">
                         <div class="padding-fifteen-all bg-light-gray border-radius-6 md-padding-seven-all xs-padding-30px-all height-100">
@@ -91,7 +91,7 @@
         <!-- end contact form section -->
 
         <section id="my-listings" class="bg-light-gray wow fadeIn">
-            <div class="container">
+            <div style="height:100vh" class="container">
                 <div class="row">
                     <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 center-col margin-eight-bottom sm-margin-40px-bottom xs-margin-30px-bottom text-center">
                         <h5 class="alt-font text-extra-dark-gray font-weight-600">My Listings</h5>
@@ -144,13 +144,13 @@
             </div>
         </section>
 
-        <section id="add-listing" class="wow fadeIn big-section">
-            <div class="container">
+        <section id="add-listing" class="wow fadeIn">
+            <div style="height:100vh" class="container">
                 <div class="row equalize sm-equalize-auto">
-                    <div class="col-md-6 col-sm-12 col-xs-12 sm-margin-30px-bottom">
+                    <div class="col-md-6 col-sm-12 col-xs-12 sm-margin-30px-bottom wow fadeInLeft">
                         <div class="padding-fifteen-all bg-light-gray border-radius-6 md-padding-seven-all xs-padding-30px-all height-100">
                             <span class="text-extra-dark-gray alt-font text-large font-weight-600 margin-25px-bottom display-block">Add Listing</span> 
-                            <form onsubmit="" id="profile-data">
+                            <form onsubmit="_postListing(event)" id="listing-data">
                                 <div>
                                     <div id="success-contact-form" class="no-margin-lr"></div>
                                     <input type="text" name="name" id="name" placeholder="Title*" class="border-radius-4 bg-white medium-input">
@@ -164,7 +164,7 @@
                             </form>
                         </div>
                     </div>
-                    <div class="col-md-6 col-sm-12 col-xs-12 last-paragraph-no-margin">
+                    <div class="col-md-6 col-sm-12 col-xs-12 last-paragraph-no-margin wow fadeInRight">
                         <div class="padding-ten-all bg-light-gray border-radius-6 md-padding-seven-all xs-padding-30px-all height-100 sm-text-center">
                             <img src="{{ listing.image }}=s700-c" alt="" id="listing-image" class="border-radius-6 margin-35px-bottom xs-margin-30px-bottom">
                             <span class="text-large font-weight-600 alt-font text-extra-dark-gray margin-5px-bottom display-block">Listing Picture</span>
@@ -219,25 +219,36 @@
         function toggleSection(section) {
             event.preventDefault()
 
-            if (section == window.currentSection){
-
-            }
+            if (section == window.currentSection){}
             else{
-                $("#"+section).show()
                 $("#"+window.currentSection).hide()
-                currentSection = section
+                $("#"+section).show()
+                window.currentSection = section
             }            
+        }
+
+        function _postListing(e){
+            e.preventDefault();
+            $.post( '/api/listing',
+                $('#listing-data').serialize(),
+                function (response) {
+                    console.log(response);
+                    $('#listing-data').closest('form').find("input[type=text], textarea, input[type=date],").val("");
+                    alert('Your listing was posted.');
+                }
+            )
         }
 
         function _updateUser (e) {
             // console.log($('#profile-data').serialize())
             e.preventDefault();
             $.post( '/auth/update',
-                    $('#profile-data').serialize(),
-                    function (response) {
-                        console.log(response);
-                        alert('Your profile was updated.');
-                    })
+                $('#profile-data').serialize(),
+                function (response) {
+                    console.log(response);
+                    alert('Your profile was updated.');
+                }
+            )
         }
     </script>
     </body>
