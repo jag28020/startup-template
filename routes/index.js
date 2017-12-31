@@ -65,7 +65,16 @@ router.get('/dashboard', (req, res) => {
 
 	controllers.user.getById(req.vertexSession.user.id)
 	.then(data => {
-		res.render('dashboard', {user: data}) // user data passed in as "user" key for Mustache rendering
+		var payload = {user: data, listings: null}
+		controllers.listing.get({user: req.vertexSession.user.id})
+		.then(data => {
+			payload.listings = data
+			console.log(JSON.stringify(payload))
+			res.render('dashboard', payload) // user data passed in as "user" key for Mustache rendering
+		})
+		.catch(err => {
+			res.redirect('/error?message=' + err.message)
+		})
 	})
 	.catch(err => {
 		res.redirect('/error?message=' + err.message)
